@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Stores";
+}
+
+<h2>Stores</h2>
+<p>@Html.ActionLink("Create New", "Create")</p>
+
+<div class="body-content">
+
+
+    <div class="row"> 
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="storeList">
+                    
+                </tbody>
+            </table> 
+             
+        </div>
+    </div>
+
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                type: 'GET',
+                url: '/services/stores',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                headers: {
+                    "Authorization": "Basic " +  btoa('my_user' + ":" + 'my_password')
+                },
+                success: function (data) {
+                    LoadStores(data);
+                },
+                error: function (msg) {
+                    if (msg.responseText != "") { alert(msg.responseText); }
+                    
+                }
+            });
+        });
+
+
+        function LoadStores(data) {
+
+            $(data.Stores).each(function () {
+                $("#storeList").append($('<tr><td>' +this.Name + '</td>' +
+                                       '<td>'+ this.Address +'</td>' +
+                                       '<td>  <a href="/Store/Edit/' + this.Id + '">Edit   </a>' +
+                                       '      <a href="/Store/Delete/' +this.Id + '">  Delete</a></td></tr>'))
+                });
+        }
+
+        
+
+    </script>
+}

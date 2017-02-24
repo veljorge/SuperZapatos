@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Articles";
+}
+
+<h2>Articles</h2>
+<p>@Html.ActionLink("Create New", "Create")</p>
+
+
+<div class="body-content">
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Total In Shelf</th>
+                        <th>Total In Vault</th>
+                        <th>Store</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="articleList"></tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                type: 'GET',
+                url: '/services/articles',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                headers: {
+                    "Authorization": "Basic " + btoa('my_user' + ":" + 'my_password')
+                },
+                success: function (data) {
+                    LoadArticles(data);
+                },
+                error: function (msg) {
+                    if (msg.responseText != "") { alert(msg.responseText); }
+                }
+            });
+        });
+
+
+        function LoadArticles(data) {
+
+            $(data.Articles).each(function () {
+                $("#articleList").append($('<tr><td>' + this.Name + '</td>' +
+                                       '<td>' + this.Description + '</td>' +
+                                       '<td>' + this.Total_in_Shelf + '</td>' +
+                                       '<td>' + this.Total_in_Vault + '</td>' +
+                                       '<td>' + this.StoreName + '</td>' +
+                                       '<td>  <a href="/Article/Edit/' + this.Id + '">Edit   </a>' +
+                                       '      <a href="/Article/Delete/' +this.Id + '">  Delete</a></td></tr>'))
+                });
+        }
+
+
+
+    </script>
+}

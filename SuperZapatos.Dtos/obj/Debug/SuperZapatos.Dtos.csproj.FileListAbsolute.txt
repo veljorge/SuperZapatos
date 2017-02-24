@@ -1,0 +1,5 @@
+C:\Users\jorge.velasquez\documents\visual studio 2015\Projects\SuperZapatosSln\SuperZapatos.Dtos\bin\Debug\SuperZapatos.Dtos.dll
+C:\Users\jorge.velasquez\documents\visual studio 2015\Projects\SuperZapatosSln\SuperZapatos.Dtos\bin\Debug\SuperZapatos.Dtos.pdb
+C:\Users\jorge.velasquez\documents\visual studio 2015\Projects\SuperZapatosSln\SuperZapatos.Dtos\obj\Debug\SuperZapatos.Dtos.dll
+C:\Users\jorge.velasquez\documents\visual studio 2015\Projects\SuperZapatosSln\SuperZapatos.Dtos\obj\Debug\SuperZapatos.Dtos.pdb
+C:\Users\jorge.velasquez\documents\visual studio 2015\Projects\SuperZapatosSln\SuperZapatos.Dtos\obj\Debug\SuperZapatos.Dtos.csprojResolveAssemblyReference.cache
