@@ -54,16 +54,20 @@
 
 
         function LoadArticles(data) {
-
-            $(data.Articles).each(function () {
-                $("#articleList").append($('<tr><td>' + this.Name + '</td>' +
-                                       '<td>' + this.Description + '</td>' +
-                                       '<td>' + this.Total_in_Shelf + '</td>' +
-                                       '<td>' + this.Total_in_Vault + '</td>' +
-                                       '<td>' + this.StoreName + '</td>' +
-                                       '<td>  <a href="/Article/Edit/' + this.Id + '">Edit   </a>' +
-                                       '      <a href="/Article/Delete/' +this.Id + '">  Delete</a></td></tr>'))
+            if (data.success == true) {
+                $(data.articles).each(function () {
+                    $("#articleList").append($('<tr><td>' + this.Name + '</td>' +
+                                           '<td>' + this.Description + '</td>' +
+                                           '<td>' + this.Total_in_Shelf + '</td>' +
+                                           '<td>' + this.Total_in_Vault + '</td>' +
+                                           '<td>' + this.StoreName + '</td>' +
+                                           '<td>  <a href="/Article/Edit/' + this.Id + '">Edit   </a>' +
+                                           '      <a href="/Article/Delete/' + this.Id + '">  Delete</a></td></tr>'))
                 });
+            }
+            else {
+                alert(data.error_msg);
+            }
         }
 
 

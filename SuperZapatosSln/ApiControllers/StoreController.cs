@@ -60,9 +60,9 @@
                 var stores = await storeService.GetAllAsync();
 
                 Dictionary<string, object> dict = new Dictionary<string, object>();
-                dict.Add("Stores", stores);
-                dict.Add("Success", true);
-                dict.Add("Count", stores.Count());
+                dict.Add("stores", stores);
+                dict.Add("success", true);
+                dict.Add("count", stores.Count());
 
 
                 return Ok(dict);

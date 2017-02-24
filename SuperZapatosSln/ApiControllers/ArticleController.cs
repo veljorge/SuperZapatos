@@ -60,9 +60,9 @@ namespace SuperZapatosSln.ApiControllers
                 var articles = await articleService.GetAllAsync();
 
                 Dictionary<string, object> dict = new Dictionary<string, object>();
-                dict.Add("Articles", articles);
-                dict.Add("Success", true);
-                dict.Add("Count", articles.Count());
+                dict.Add("articles", articles);
+                dict.Add("success", true);
+                dict.Add("count", articles.Count());
                 return Ok(dict);
             }
             catch (Exception)
@@ -85,9 +85,9 @@ namespace SuperZapatosSln.ApiControllers
                     if (articles.Count() > 0)
                     {
                         Dictionary<string, object> dict = new Dictionary<string, object>();
-                        dict.Add("Articles", articles);
-                        dict.Add("Success", true);
-                        dict.Add("Count", articles.Count());
+                        dict.Add("articles", articles);
+                        dict.Add("success", true);
+                        dict.Add("count", articles.Count());
                         return Ok(dict);
                     }
                     else

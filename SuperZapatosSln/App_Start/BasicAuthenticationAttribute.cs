@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Web;
+using SuperZapatos.Dtos;
 
 namespace SuperZapatosSln.App_Start
 {
@@ -10,11 +13,16 @@ namespace SuperZapatosSln.App_Start
     {
         public override void OnActionExecuting(System.Web.Http.Controllers.HttpActionContext actionContext)
         {
+
+            ErrorResponse error = new ErrorResponse("Not Authorized", 401, false);
             try
             {
                 if (actionContext.Request.Headers.Authorization == null)
                 {
-                    actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized);
+                    actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized,
+                                                                                      error,
+                                                                                      actionContext.ControllerContext.Configuration.Formatters.JsonFormatter
+                                                                                      );
                 }
                 else
                 {
@@ -26,12 +34,20 @@ namespace SuperZapatosSln.App_Start
                     string password = httpRequestHeaderValues[1];//Encoding.UTF8.GetString(Convert.FromBase64String(httpRequestHeaderValues[1]));
 
                     if (!(username.Equals("my_user") && password.Equals("my_password")))
-                    { actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized); }
+                    {
+                        actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized,
+                                                                                      error,
+                                                                                      actionContext.ControllerContext.Configuration.Formatters.JsonFormatter
+                                                                                      );
+                    }
                 }
             }
             catch
             {
-                actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.InternalServerError);
+                actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized,
+                                                                                      error,
+                                                                                      actionContext.ControllerContext.Configuration.Formatters.JsonFormatter
+                                                                                      );
             }
             base.OnActionExecuting(actionContext);
         }

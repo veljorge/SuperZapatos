@@ -11,7 +11,7 @@ namespace SuperZapatos.Dtos
         [DataMember]
         public long Id { get; set; }
 
-        [DataMember]
+        [DataMember ]
         [Required]
         public string Name { get; set; }
 
