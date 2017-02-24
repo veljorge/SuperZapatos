@@ -34,6 +34,8 @@ namespace SuperZapatosSln.ApiControllers
         }
         #endregion
 
+        #region Api Controller Members
+
         [Route("articlesSync")]
         [HttpGet]
         public IHttpActionResult GetAllStores()
@@ -45,7 +47,7 @@ namespace SuperZapatosSln.ApiControllers
             }
             catch (Exception)
             {
-                return InternalServerError();
+                return Ok(new ErrorResponse("Server Error", 500, false));
             }
         }
 
@@ -65,7 +67,7 @@ namespace SuperZapatosSln.ApiControllers
             }
             catch (Exception)
             {
-                return InternalServerError();
+                return Ok(new ErrorResponse("Server Error", 500, false));
             }
         }
 
@@ -80,7 +82,8 @@ namespace SuperZapatosSln.ApiControllers
                 {
                     var articles = await articleService.GetArticlesFromStoreAsync(number);
 
-                    if (articles.Count() > 0) {
+                    if (articles.Count() > 0)
+                    {
                         Dictionary<string, object> dict = new Dictionary<string, object>();
                         dict.Add("Articles", articles);
                         dict.Add("Success", true);
@@ -89,22 +92,24 @@ namespace SuperZapatosSln.ApiControllers
                     }
                     else
                     {
-                        
+
                         return Ok(new ErrorResponse("Record Not Found", 400, false));
                     }
-                    
+
                 }
                 else
                 {
-                    return Ok(new ErrorResponse("Bad Request",404,false));
+                    return Ok(new ErrorResponse("Bad Request", 404, false));
                 }
             }
             catch (Exception)
             {
 
-                return InternalServerError();
+                return Ok(new ErrorResponse("Server Error", 500, false));
             }
         }
+        #endregion
+
 
     }
 }

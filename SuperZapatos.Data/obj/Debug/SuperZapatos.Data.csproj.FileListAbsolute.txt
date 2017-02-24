@@ -8,7 +8,7 @@ C:\Users\jorge.velasquez\documents\visual studio 2015\Projects\SuperZapatosSln\S
 C:\Users\jorge.velasquez\documents\visual studio 2015\Projects\SuperZapatosSln\SuperZapatos.Data\bin\Debug\EntityFramework.xml
 C:\Users\jorge.velasquez\documents\visual studio 2015\Projects\SuperZapatosSln\SuperZapatos.Data\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\jorge.velasquez\documents\visual studio 2015\Projects\SuperZapatosSln\SuperZapatos.Data\obj\Debug\SuperZapatos.Data.csprojResolveAssemblyReference.cache
-C:\Users\jorge.velasquez\documents\visual studio 2015\Projects\SuperZapatosSln\SuperZapatos.Data\obj\Debug\SuperZapatos.Data.Migrations.Initial.resources
-C:\Users\jorge.velasquez\documents\visual studio 2015\Projects\SuperZapatosSln\SuperZapatos.Data\obj\Debug\SuperZapatos.Data.csproj.GenerateResource.Cache
 C:\Users\jorge.velasquez\documents\visual studio 2015\Projects\SuperZapatosSln\SuperZapatos.Data\obj\Debug\SuperZapatos.Data.dll
 C:\Users\jorge.velasquez\documents\visual studio 2015\Projects\SuperZapatosSln\SuperZapatos.Data\obj\Debug\SuperZapatos.Data.pdb
+C:\Users\jorge.velasquez\documents\visual studio 2015\Projects\SuperZapatosSln\SuperZapatos.Data\obj\Debug\SuperZapatos.Data.Migrations.Initial.resources
+C:\Users\jorge.velasquez\documents\visual studio 2015\Projects\SuperZapatosSln\SuperZapatos.Data\obj\Debug\SuperZapatos.Data.csproj.GenerateResource.Cache

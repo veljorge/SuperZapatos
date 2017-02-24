@@ -34,6 +34,8 @@
         }
         #endregion
 
+        #region Api Controller Members
+
         [Route("storesSync")]
         [HttpGet]
         public IHttpActionResult GetAllStores()
@@ -45,7 +47,7 @@
             }
             catch (Exception)
             {
-                return InternalServerError();
+                return Ok(new ErrorResponse("Server Error", 500, false));
             }
         }
 
@@ -67,11 +69,12 @@
             }
             catch (Exception)
             {
-                return InternalServerError();
+
+                return Ok(new ErrorResponse("Server Error", 500, false));
             }
         }
+        #endregion
 
-       
     }
 }
 
